@@ -16,7 +16,7 @@ public class ProcessadorPedidos implements Runnable {
             Pedido pedido = fila.poll();
             if (pedido != null) {
                 pedido.setStatus(StatusPedido.PROCESSANDO);
-                System.out.println("Processando pedido de " + pedido.getCliente().getNome());
+                System.out.println("\nProcessando pedido de " + pedido.getCliente().getNome());
                 try {
                     Thread.sleep(3000); // Simula tempo de processamento
                 } catch (InterruptedException e) {
@@ -25,6 +25,12 @@ public class ProcessadorPedidos implements Runnable {
                 pedido.setStatus(StatusPedido.FINALIZADO);
                 System.out.println("Pedido finalizado: " + pedido);
             }
+             try {
+            Thread.sleep(1000); // espera antes de verificar a fila novamente
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         }
     }
 }

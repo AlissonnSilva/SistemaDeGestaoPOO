@@ -27,4 +27,15 @@ public class Produto {
     public String toString() {
         return nome + " - R$" + preco + " [" + categoria + "]";
     }
+    public void setNome(String nome) {
+        this.nome = nome;
+}
+
+public void setPreco(double preco) {
+    if (preco <= 0) {
+        throw new IllegalArgumentException("Preço deve ser positivo.");
+    }
+    this.preco = preco;
+}
+
 }

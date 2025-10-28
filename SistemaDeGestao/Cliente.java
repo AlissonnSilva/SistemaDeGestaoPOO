@@ -24,4 +24,15 @@ public class Cliente {
     public String toString() {
         return "Cliente: " + nome + " (" + email + ")";
     }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setEmail(String email) {
+        if (email == null || email.isEmpty()) {
+            throw new IllegalArgumentException("Email não pode ser vazio.");
+        }
+        this.email = email;
+    }
+
 }
