@@ -13,14 +13,16 @@ public class ProcessadorPedidos implements Runnable {
     @Override
     public void run() {
         while (true) {
-            Pedido pedido = fila.poll();
+            Pedido pedido = fila.poll(); // Remove e retorna o primeiro pedido da fila (ou null se estiver vazia)
+
             if (pedido != null) {
                 pedido.setStatus(StatusPedido.PROCESSANDO);
                 System.out.println("\nProcessando pedido de " + pedido.getCliente().getNome());
                 try {
                     Thread.sleep(3000); // Simula tempo de processamento
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    e.printStackTrace(); // Exibe no console a pilha de chamadas que levou à exceção, útil para depuração
+
                 }
                 pedido.setStatus(StatusPedido.FINALIZADO);
                 System.out.println("Pedido finalizado: " + pedido);

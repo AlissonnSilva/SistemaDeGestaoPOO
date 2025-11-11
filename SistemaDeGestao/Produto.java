@@ -9,10 +9,15 @@ public class Produto {
     private CategoriaProduto categoria;
 
     public Produto(String nome, double preco, CategoriaProduto categoria) {
+        //validacao preco deve ser positivo
         if (preco <= 0) {
             throw new IllegalArgumentException("Preço deve ser positivo.");
         }
         this.id = UUID.randomUUID();
+        //validacao nome
+        if (nome == null || nome.isEmpty()) {
+            throw new IllegalArgumentException("Nome não pode ser vazio.");
+        }
         this.nome = nome;
         this.preco = preco;
         this.categoria = categoria;

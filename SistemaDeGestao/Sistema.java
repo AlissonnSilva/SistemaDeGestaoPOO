@@ -80,22 +80,50 @@ public class Sistema {
 
     // Cadastro de produto com validação
     private static void cadastrarProduto() {
-        System.out.print("Nome do produto: ");
-        String nome = scanner.nextLine();
-        System.out.print("Preço: ");
-        double preco = scanner.nextDouble();
-        scanner.nextLine(); // Limpa buffer
-        System.out.print("Categoria: ");
-        String categoriaStr = scanner.nextLine().toUpperCase();
+    System.out.print("Nome do produto: ");
+    String nome = scanner.nextLine().trim();
 
-        try {
-            CategoriaProduto categoria = CategoriaProduto.valueOf(categoriaStr);
-            produtos.add(new Produto(nome, preco, categoria));
-            System.out.println("Produto cadastrado com sucesso!");
-        } catch (IllegalArgumentException e) {
-            System.out.println("Erro: " + e.getMessage());
-        }
+    if (nome.isEmpty()) {
+        System.out.println("Erro: Nome não pode ser vazio.");
+        return;
     }
+
+    System.out.print("Preço: ");
+    String entradaPreco = scanner.nextLine().trim();
+
+    if (entradaPreco.isEmpty()) {
+        System.out.println("Erro: Preço não pode ser vazio.");
+        return;
+    }
+
+    double preco;
+    try {
+        preco = Double.parseDouble(entradaPreco);
+        if (preco <= 0) {
+            System.out.println("Erro: Preço deve ser maior que zero.");
+            return;
+        }
+    } catch (NumberFormatException e) {
+        System.out.println("Erro: Preço inválido. Digite um número válido.");
+        return;
+    }
+
+    System.out.print("Categoria: ");
+    String categoriaTexto = scanner.nextLine().trim();
+
+    CategoriaProduto categoria;
+    try {
+        categoria = CategoriaProduto.valueOf(categoriaTexto.toUpperCase());
+    } catch (IllegalArgumentException e) {
+        System.out.println("Erro: Categoria inválida.");
+        return;
+    }
+
+    Produto produto = new Produto(nome, preco, categoria);
+    produtos.add(produto);
+    System.out.println("Produto cadastrado com sucesso!");
+}
+
 
     // Criação de pedido com múltiplos itens
     private static void criarPedido() {

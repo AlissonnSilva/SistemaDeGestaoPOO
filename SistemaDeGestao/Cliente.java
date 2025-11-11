@@ -8,8 +8,13 @@ public class Cliente {
     private String email;
 
     public Cliente(String nome, String email) {
+        //validacao email
         if (email == null || email.isEmpty()) {
             throw new IllegalArgumentException("Email não pode ser vazio.");
+        }
+        //validacao nome
+        if (nome == null || nome.isEmpty()) {
+            throw new IllegalArgumentException("Nome não pode ser vazio.");
         }
         this.id = UUID.randomUUID();
         this.nome = nome;
@@ -25,6 +30,9 @@ public class Cliente {
         return "Cliente: " + nome + " (" + email + ")";
     }
     public void setNome(String nome) {
+        if (nome == null || nome.isEmpty()) {
+            throw new IllegalArgumentException("Nome não pode ser vazio.");
+        }
         this.nome = nome;
     }
 
