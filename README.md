@@ -17,13 +17,13 @@ Este é um sistema de gestão desenvolvido em Java, com foco em organização de
 - Utilização de Thread para simular o fluxo de pedidos em tempo real.
 
 🧠**Estrutura e Organização**
-🔹 Classes Principais
+-🔹 Classes Principais
 - Sistema: ponto de entrada da aplicação, gerencia o menu e as operações.
 - Cliente: representa os dados de um cliente (nome, email).
 - Produto: representa os dados de um produto (nome, preço, estoque).
 - Pedido: associa cliente e produto, com quantidade e status.
 - ProcessadorPedidos: classe que roda em uma thread separada para processar pedidos da fila.
-🔹 Estruturas de Dados Utilizadas
+-🔹 Estruturas de Dados Utilizadas
 - List<Cliente>: lista de clientes.
 - List<Produto>: lista de produtos.
 - List<Pedido>: histórico de pedidos.
@@ -37,7 +37,7 @@ Este é um sistema de gestão desenvolvido em Java, com foco em organização de
 - Coleções Java (ArrayList, Queue, LinkedList)
 - Tratamento de exceções com try-catch
 
-🚀 Como Executar
+🚀 **Como Executar**
 - Clone o projeto:
 git clone https://github.com/seu-usuario/sistema-gestao-java.git
 cd sistema-gestao-java
@@ -55,14 +55,15 @@ java SistemaDeGestao.Sistema
 
 📂 **Estrutura de Diretórios**
 SistemaDeGestao/
-├── Sistema.java
-├── Cliente.java
-├── Produto.java
-├── Pedido.java
-├── ProcessadorPedidos.java
-├── ItemPedido.java
-├── CategoriaProduto.java
-├── StatusPedido.java
+
+-├── Sistema.java
+-├── Cliente.java
+-├── Produto.java
+-├── Pedido.java
+-├── ProcessadorPedidos.java
+-├── ItemPedido.java
+-├── CategoriaProduto.java
+-├── StatusPedido.java
 
 
 
