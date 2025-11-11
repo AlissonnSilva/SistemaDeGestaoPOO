@@ -58,6 +58,7 @@ java SistemaDeGestao.Sistema
 - Tratamento de entradas inválidas no menu principal.
 
 📂 **Estrutura de Diretórios**
+
 SistemaDeGestao/
 
 ├── Sistema.java
